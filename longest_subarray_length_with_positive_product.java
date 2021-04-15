@@ -73,3 +73,29 @@ public class longest_subarray_length_with_positive_product{
         System.out.println(len);
     }
 }
+
+
+/* Another O(N) Approach
+
+class Solution {
+    public int getMaxLen(int[] nums) {
+        int n=nums.length;
+        int neg=0,nif=-1,zi=-1,ans=0;
+        for(int i=0;i<n;++i){
+            if(nums[i]<0){
+                neg++;
+                if(nif<0) nif=i;
+            }
+            else if(nums[i]==0){
+                zi=i;
+                neg=0;
+                nif=-1;
+            }
+            if(neg%2==0) ans=Math.max(ans,i-zi);
+            else ans=Math.max(ans,i-nif);
+        }
+        return ans;
+    }
+}
+
+*/
