@@ -53,6 +53,8 @@ Sample Output-3:
 ----------------
 true
 */
+
+/* O(N**2) solution*/
 import java.util.*;
 class uber{
     public static void main(String args[]){
@@ -82,3 +84,43 @@ class uber{
         else System.out.println("false");
     }
 }
+
+
+/*O(N) Solution
+import java.util.*;
+class uber{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int s=sc.nextInt();
+        int[][] bookings=new int[n][3];
+        int maxx=Integer.MIN_VALUE;
+        for(int i=0;i<n;++i){
+            int customers=sc.nextInt();
+            int pick=sc.nextInt();
+            int drop=sc.nextInt();
+            bookings[i]=new int[]{customers,pick,drop};
+            maxx=Math.max(maxx,Math.max(pick,drop));
+        }
+        int[] arr=new int[maxx+1];
+        for(int[] booking:bookings){
+            int people=booking[0];
+            int pick=booking[1];
+            int drop=booking[2];
+            arr[pick]+=people;
+            arr[drop]-=people;
+        }
+        int sum=0,flag=0;
+        for(int num:arr){
+            sum+=num;
+            if(sum>s){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0) System.out.println("true");
+        else System.out.println("false");
+
+    }
+}
+*/
