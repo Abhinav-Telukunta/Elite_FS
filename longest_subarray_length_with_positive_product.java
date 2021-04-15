@@ -1,6 +1,6 @@
 /*Ashok is given an array of integers nums.
-His task is to find the longest contiguous subsequence S, 
-the product of all the numbers in the subsequence should be positive.
+His task is to find the longest contiguous subarray S, 
+the product of all the numbers in the subarray should be positive.
 
 Return the length of longest contiguous subarray.
 
@@ -10,7 +10,7 @@ Space separated integers nums[], list of numbers.
 
 Output Format:
 --------------
-Print the length of the longest contiguous subsequence
+Print the length of the longest contiguous subarray
 
 
 Sample Input-1:
