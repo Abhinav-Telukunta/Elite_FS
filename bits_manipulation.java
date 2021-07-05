@@ -67,19 +67,15 @@ class bits{
         int[] arr=new int[n];
         for(int i=0;i<n;++i) arr[i]=sc.nextInt();
         int ans=0;
-        for(int i=0;i<n;++i){
-            for(int j=i+1;j<n;++j){
-                ans+=compute_diff(arr[i],arr[j]);
+        for(int i=0;i<32;++i){
+            int zero=0,one=0;
+            for(int j=0;j<n;++j){
+                if(arr[j]%2==0) zero++;
+                else one++;
+                arr[j]=arr[j]/2;
             }
+            ans=ans+(zero*one);
         }
         System.out.println(ans);
-    }
-    public static int compute_diff(int a,int b){
-        int xor=a^b,res=0;
-        while(xor!=0){
-            xor=xor&(xor-1);
-            res++;
-        }
-        return res;
     }
 }
